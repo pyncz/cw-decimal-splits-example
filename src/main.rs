@@ -1,4 +1,3 @@
-use std::ops::Mul;
 use cosmwasm_std::{Decimal, Uint128};
 
 fn get_share(amount: Uint128, share_percent: u64) -> Uint128 {
@@ -9,7 +8,7 @@ fn get_share(amount: Uint128, share_percent: u64) -> Uint128 {
     println!("amount_decimal: {} ({})", amount_decimal, amount_decimal.atomics());
 
     // Calculate retained fees
-    let fee = amount_decimal.mul(share);
+    let fee = amount_decimal * share;
     println!("fee: {} ({})", fee, fee.atomics());
 
     // return amount converted back from decimal to regular uint128,
